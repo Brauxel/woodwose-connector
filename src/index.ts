@@ -3,7 +3,7 @@ interface Test {
 }
 
 const values: Test = {
-    name: 'aakash'
-}
+    name: "aakash" 
+};
 
-console.log('values', values);
+console.log("values22", values);

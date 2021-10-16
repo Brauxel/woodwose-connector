@@ -6,6 +6,7 @@
   "scripts": {
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
+    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix",
     "serve-debug": "nodemon --inspect dist/index.js",
     "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
   },
@@ -20,7 +21,10 @@
   },
   "homepage": "https://github.com/Brauxel/woodwose-connector#readme",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "concurrently": "^6.3.0",
+    "eslint": "^8.0.1",
     "nodemon": "^2.0.13",
     "typescript": "^4.4.4"
   }
