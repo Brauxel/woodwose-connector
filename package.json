@@ -1,0 +1,27 @@
+{
+  "name": "woodwose-connector",
+  "version": "1.0.0",
+  "description": "This is a connector between woocommerce and amazon sellers to update quantity in a datasource",
+  "main": "index.js",
+  "scripts": {
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "serve-debug": "nodemon --inspect dist/index.js",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brauxel/woodwose-connector.git"
+  },
+  "author": "Aakash Bhatia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brauxel/woodwose-connector/issues"
+  },
+  "homepage": "https://github.com/Brauxel/woodwose-connector#readme",
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "nodemon": "^2.0.13",
+    "typescript": "^4.4.4"
+  }
+}
