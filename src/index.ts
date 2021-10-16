@@ -1,9 +1,9 @@
 interface Test {
-    name: string
+  name: string;
 }
 
 const values: Test = {
-    name: "aakash" 
+  name: "aakash",
 };
 
 console.log("values22", values);
