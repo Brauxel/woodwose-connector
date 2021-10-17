@@ -1,13 +1,20 @@
 import { Router } from "express";
+import {
+  getGoogleSheet,
+  postGoogleSheet,
+  putGoogleSheet,
+} from "./googleSheet.controller";
 
 const googleSheetRouter = Router();
 
 /**
  * Google Sheet
- * @route GET /api/google-sheet
+ * @route /api/google-sheet
  */
-googleSheetRouter.route("/").get(async (_, res) => {
-  res.status(200).end();
-});
+googleSheetRouter
+  .route("/")
+  .get(getGoogleSheet)
+  .post(postGoogleSheet)
+  .put(putGoogleSheet);
 
 export default googleSheetRouter;
