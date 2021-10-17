@@ -1,9 +1,3 @@
-interface Test {
-  name: string;
-}
+import { start } from "./server";
 
-const values: Test = {
-  name: "aakash",
-};
-
-console.log("values22", values);
+start();
