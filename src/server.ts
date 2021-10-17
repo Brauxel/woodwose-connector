@@ -1,4 +1,4 @@
-import { app } from "./app";
+import app from "./app";
 
 export const start = async () => {
   try {
