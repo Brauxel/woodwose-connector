@@ -9,12 +9,14 @@ const googleSheetRouter = Router();
 
 /**
  * Google Sheet
- * @route /api/google-sheet
+ * @route /api/google-sheet/
  */
-googleSheetRouter
-  .route("/")
-  .get(getGoogleSheet)
-  .post(postGoogleSheet)
-  .put(putGoogleSheet);
+googleSheetRouter.route("/").post(postGoogleSheet);
+
+/**
+ * Google Sheet
+ * @route /api/google-sheet/:id
+ */
+googleSheetRouter.route("/:id").get(getGoogleSheet).put(putGoogleSheet);
 
 export default googleSheetRouter;
