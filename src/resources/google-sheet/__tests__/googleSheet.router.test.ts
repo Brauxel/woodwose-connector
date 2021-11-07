@@ -7,6 +7,7 @@ describe("GET /api/google-sheet/:id", () => {
       "/api/google-sheet/1LsZQD67Lj166_5Hh7-BY6sKS8vKEwDCylxmmtUOIilY"
     );
     expect(response.statusCode).toBe(200);
+    expect(response.body.data.length).toBeGreaterThanOrEqual(1);
   });
 });
 
