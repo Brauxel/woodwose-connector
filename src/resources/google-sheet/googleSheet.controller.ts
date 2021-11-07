@@ -10,8 +10,7 @@ export const getGoogleSheet = async (
 ): Promise<void> => {
   try {
     const { googleSheetsInstance } = res.locals;
-    // TODO: get this via url
-    const spreadsheetId = "1Bgyxk10XF4JXdB-4XpEDozkEtdfw-ET_JAzSBFqdMmo";
+    const { id: spreadsheetId } = req.params;
     const readData = await googleSheetsInstance.spreadsheets.values.get({
       spreadsheetId,
       range: "Sheet1!A:A",
