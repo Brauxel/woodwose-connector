@@ -13,7 +13,7 @@ export const getGoogleSheet = async (
     const { id: spreadsheetId } = req.params;
     const readData = await googleSheetsInstance.spreadsheets.values.get({
       spreadsheetId,
-      range: "Sheet1!A:A",
+      range: "orders!A:A",
     });
 
     res.status(200).json({
