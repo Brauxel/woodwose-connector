@@ -12,7 +12,7 @@ describe("GET /api/google-sheet/:id", () => {
 
   it("should return a 200 response", async () => {
     const response = await request(app).get(
-      "/api/google-sheet/15xDmdUWkqkMoqksvRen81eNURDACOdpw76-0swycy-o"
+      "/api/google-sheet/15xDmdUWkqkMoqksvRen81eNURDACOdpw76-0swycy-o?range=orders"
     );
     expect(response.statusCode).toBe(200);
     expect(response.body.data.length).toBeGreaterThanOrEqual(1);
