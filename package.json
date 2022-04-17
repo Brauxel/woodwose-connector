@@ -1,0 +1,48 @@
+{
+  "name": "woodwose-connector",
+  "version": "1.0.0",
+  "description": "This is a connector between woocommerce and amazon sellers to update quantity in a datasource",
+  "main": "index.js",
+  "scripts": {
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "test": "jest --forceExit --coverage --verbose",
+    "watch-test": "npm run test -- --watchAll",
+    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix",
+    "serve-debug": "nodemon --inspect dist/index.js",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\"",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brauxel/woodwose-connector.git"
+  },
+  "author": "Aakash Bhatia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brauxel/woodwose-connector/issues"
+  },
+  "homepage": "https://github.com/Brauxel/woodwose-connector#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "concurrently": "^6.3.0",
+    "eslint": "^8.0.1",
+    "husky": "^7.0.2",
+    "jest": "^27.2.5",
+    "nodemon": "^2.0.13",
+    "prettier": "^2.4.1",
+    "supertest": "^6.1.6",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "@types/jest": "^27.0.2",
+    "dotenv": "^10.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "express": "^4.17.1",
+    "googleapis": "^88.2.0"
+  }
+}
