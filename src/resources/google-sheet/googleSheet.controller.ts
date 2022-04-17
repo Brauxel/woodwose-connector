@@ -11,16 +11,17 @@ export const getGoogleSheet = async (
   try {
     const { googleSheetsInstance } = res.locals;
     const { id: spreadsheetId } = req.params;
+    const { range } = req.query;
     const readData = await googleSheetsInstance.spreadsheets.values.get({
       spreadsheetId,
-      range: "Sheet1!A:A",
+      range,
     });
 
     res.status(200).json({
       data: readData.data.values,
     });
   } catch (error) {
-    res.status(404).end();
+    res.status(404).send({ error: "Not found" });
   }
 };
 
