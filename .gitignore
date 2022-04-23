@@ -107,3 +107,6 @@ dist
 
 # Google Keys
 keys.json
+
+# Code Editor Settings
+.vscode/
