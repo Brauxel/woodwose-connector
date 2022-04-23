@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import fs from "fs";
 
-export const hydrateEnv = () => {
+export const hydrateEnv = async () => {
   if (fs.existsSync(".env")) {
     // TODO: Enter Logger here
     dotenv.config({ path: ".env" });

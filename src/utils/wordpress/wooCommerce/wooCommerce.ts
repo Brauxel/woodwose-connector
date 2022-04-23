@@ -21,7 +21,7 @@ export const createWooCommerceApi = (
   }
 };
 
-export const getProducts = async () => {
+export const getProducts = () => {
   const WooCommerce = createWooCommerceApi();
 
   return WooCommerce.get("products")
