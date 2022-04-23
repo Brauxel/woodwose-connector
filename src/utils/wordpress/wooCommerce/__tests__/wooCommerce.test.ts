@@ -1,6 +1,5 @@
 import { hydrateEnv } from "../../../secrets";
 import { createWooCommerceApi, getProducts } from "../wooCommerce";
-import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 
 describe("WordPress Utils - WooCommerce", () => {
   describe("createWooCommerceApi", () => {

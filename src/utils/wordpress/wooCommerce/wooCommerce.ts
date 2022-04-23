@@ -1,5 +1,12 @@
 import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
+import logger from "../../logger";
 import { Product } from "./@types/wooCommerceTypes";
+
+const logAndThrowError = (message: string, error: Error) => {
+  logger.error(message, new Error(`${JSON.stringify(error)}`));
+
+  throw new Error(message);
+};
 
 export const createWooCommerceApi = (
   url = process.env.WORDPRESS_URL as string,
@@ -14,10 +21,10 @@ export const createWooCommerceApi = (
       version: "wc/v3",
     });
   } catch (error) {
-    console.error(
-      `Could not create Woo Commerce Api: ${JSON.stringify(error)}`
+    return logAndThrowError(
+      "Could not create Woo Commerce Api",
+      error as Error
     );
-    throw new Error("Could not create Woo Commerce Api");
   }
 };
 
@@ -27,8 +34,7 @@ export const getProducts = () => {
   return WooCommerce.get("products")
     .then((response) => response.data)
     .catch((error) => {
-      console.error(`GET /products Error: ${error.response.data}`);
-      throw new Error("The GET /products call returned an error");
+      logAndThrowError("The GET /products call returned an error", error);
     });
 };
 
@@ -44,11 +50,9 @@ export const getInventory = async () => {
         stock_quantity,
       }));
   } catch (error) {
-    console.error(
-      `Encountered and error in the getInventory function: ${JSON.stringify(
-        error
-      )}`
+    logAndThrowError(
+      "Encountered and error in the getInventory function",
+      error as Error
     );
-    throw new Error("Error in creating inventory array");
   }
 };
