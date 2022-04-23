@@ -1,7 +1,17 @@
+import logger from "../../../logger";
 import { hydrateEnv } from "../../../secrets";
 import { createWooCommerceApi, getProducts } from "../wooCommerce";
 
 describe("WordPress Utils - WooCommerce", () => {
+  beforeAll(() => {
+    jest.spyOn(logger, "error").mockImplementation();
+    jest.spyOn(logger, "warn").mockImplementation();
+    jest.spyOn(logger, "info").mockImplementation();
+  });
+  afterAll(() => {
+    jest.clearAllMocks();
+  });
+
   describe("createWooCommerceApi", () => {
     describe("Error", () => {
       it("should return error if ENV values are not provided", () => {
