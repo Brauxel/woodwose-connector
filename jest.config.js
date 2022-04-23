@@ -10,4 +10,6 @@ module.exports = {
   },
   testMatch: ["**/__tests__/**/*.test.(ts|js)"],
   testEnvironment: "node",
+  setupFiles: ["./jest.setup.js"],
+  testPathIgnorePatterns: ["/node_modules/", "/dist/"],
 };

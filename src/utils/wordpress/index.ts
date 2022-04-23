@@ -1,1 +1,1 @@
-export * from "./wooCommerce";
+export * from "./wooCommerce/wooCommerce";

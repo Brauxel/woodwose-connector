@@ -7,7 +7,8 @@ export const start = async () => {
       console.log("REST API is on http://localhost:%d/api", app.get("port"));
     });
 
-    await getInventory();
+    const inventory = await getInventory();
+    console.log("inventory", inventory);
   } catch (e) {
     console.error(e);
   }
