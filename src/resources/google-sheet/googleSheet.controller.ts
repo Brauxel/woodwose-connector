@@ -14,11 +14,6 @@ export const getGoogleSheet = async (
     const { id: spreadsheetId } = req.params;
     const { range } = req.query;
 
-    // const readData = await googleSheetsInstance.spreadsheets.values.get({
-    //   spreadsheetId,
-    //   range,
-    // });
-
     const readData = await readGoogleSheet(
       googleSheetsInstance,
       spreadsheetId,
