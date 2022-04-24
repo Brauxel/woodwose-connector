@@ -1,6 +1,4 @@
 import { Request, Response } from "express";
-import { readGoogleSheet } from "../../utils/google-sheets";
-
 /**
  * Google Sheet
  * @route GET /api/google-sheet
@@ -14,11 +12,10 @@ export const getGoogleSheet = async (
     const { id: spreadsheetId } = req.params;
     const { range } = req.query;
 
-    const readData = await readGoogleSheet(
-      googleSheetsInstance,
+    const readData = await googleSheetsInstance.spreadsheets.values.get({
       spreadsheetId,
-      range as string
-    );
+      range,
+    });
 
     res.status(200).json({
       data: readData.data.values,

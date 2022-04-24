@@ -1,4 +1,4 @@
-import logger from "../../../logger";
+import { logger } from "../../../logger";
 import { hydrateEnv } from "../../../secrets";
 import { createWooCommerceApi, getProducts } from "../wooCommerce";
 

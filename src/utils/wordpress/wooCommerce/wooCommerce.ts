@@ -1,12 +1,6 @@
 import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
-import logger from "../../logger";
+import { logAndThrowError } from "../../logger";
 import { Product } from "./@types/wooCommerceTypes";
-
-const logAndThrowError = (message: string, error: Error) => {
-  logger.error(message, new Error(`${JSON.stringify(error)}`));
-
-  throw new Error(message);
-};
 
 export const createWooCommerceApi = (
   url = process.env.WORDPRESS_URL as string,
