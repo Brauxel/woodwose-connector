@@ -1,7 +1,7 @@
 {
   "name": "woodwose-connector",
   "version": "1.0.0",
-  "description": "This is a connector between woocommerce and amazon sellers to update quantity in a datasource",
+  "description": "This app is used to sync inventories between wordpress and amazon",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist/",

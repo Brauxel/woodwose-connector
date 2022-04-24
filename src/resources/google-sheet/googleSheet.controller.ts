@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { readGoogleSheet } from "../../utils/google-sheets";
 
 /**
  * Google Sheet
@@ -12,10 +13,17 @@ export const getGoogleSheet = async (
     const { googleSheetsInstance } = res.locals;
     const { id: spreadsheetId } = req.params;
     const { range } = req.query;
-    const readData = await googleSheetsInstance.spreadsheets.values.get({
+
+    // const readData = await googleSheetsInstance.spreadsheets.values.get({
+    //   spreadsheetId,
+    //   range,
+    // });
+
+    const readData = await readGoogleSheet(
+      googleSheetsInstance,
       spreadsheetId,
-      range,
-    });
+      range as string
+    );
 
     res.status(200).json({
       data: readData.data.values,
