@@ -1,9 +1,10 @@
 {
   "name": "woodwose-connector",
   "version": "1.0.0",
-  "description": "This is a connector between woocommerce and amazon sellers to update quantity in a datasource",
+  "description": "This app is used to sync inventories between wordpress and amazon",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf dist/",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
     "test": "jest --forceExit --coverage --verbose",
@@ -25,7 +26,10 @@
   "homepage": "https://github.com/Brauxel/woodwose-connector#readme",
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "@types/lodash": "^4.14.182",
     "@types/supertest": "^2.0.11",
+    "@types/uuid": "^8.3.4",
+    "@types/woocommerce__woocommerce-rest-api": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "concurrently": "^6.3.0",
@@ -34,15 +38,21 @@
     "jest": "^27.2.5",
     "nodemon": "^2.0.13",
     "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
     "supertest": "^6.1.6",
     "ts-jest": "^27.0.7",
     "typescript": "^4.4.4"
   },
   "dependencies": {
     "@types/jest": "^27.0.2",
+    "@woocommerce/woocommerce-rest-api": "^1.0.1",
+    "axios": "^0.26.1",
     "dotenv": "^10.0.0",
     "eslint-config-prettier": "^8.3.0",
     "express": "^4.17.1",
-    "googleapis": "^88.2.0"
+    "googleapis": "^88.2.0",
+    "lodash": "^4.17.21",
+    "uuid": "^8.3.2",
+    "winston": "^3.7.2"
   }
 }

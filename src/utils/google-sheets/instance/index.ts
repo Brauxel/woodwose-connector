@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { google } from "googleapis";
+import { GoogleAuth } from "googleapis-common";
 
 export const createAuthClient = async () => {
   try {
@@ -15,7 +16,7 @@ export const createAuthClient = async () => {
   }
 };
 
-export const createGoogleInstance = async (auth: any) => {
+export const createGoogleInstance = async (auth: GoogleAuth) => {
   try {
     const authClientObject = await auth.getClient();
 
@@ -32,7 +33,7 @@ export const createGoogleInstance = async (auth: any) => {
 };
 
 export const createGoogleSheetInstance = async (
-  req: Request,
+  _: Request,
   res: Response,
   next: NextFunction
 ) => {
