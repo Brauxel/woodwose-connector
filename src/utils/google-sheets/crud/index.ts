@@ -43,7 +43,7 @@ export const overwriteGoogleSheet = async (
     return res;
   } catch (error) {
     logAndThrowError(
-      `Unable to append to google sheet ${spreadsheetId} with range ${range}`,
+      `Unable to overwrite the google sheet ${spreadsheetId} with range ${range}`,
       error as Error
     );
   }
@@ -92,8 +92,6 @@ export const sanitizeDataForGoogleSheetsWrite = (data: Id[]): Id[][] => {
   _.forEach(data, (value) => {
     sanitizedData.push(Object.values(value));
   });
-
-  console.log("sanitize", sanitizedData);
 
   return sanitizedData;
 };

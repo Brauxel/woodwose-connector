@@ -33,7 +33,7 @@ export const createGoogleInstance = async (auth: GoogleAuth) => {
 };
 
 export const createGoogleSheetInstance = async (
-  req: Request,
+  _: Request,
   res: Response,
   next: NextFunction
 ) => {

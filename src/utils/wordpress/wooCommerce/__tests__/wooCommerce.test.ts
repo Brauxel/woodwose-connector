@@ -1,6 +1,6 @@
 import { logger } from "../../../logger";
 import { hydrateEnv } from "../../../secrets";
-import { createWooCommerceApi, getProducts } from "../wooCommerce";
+import { createWooCommerceApi, getWooCommerceProducts } from "../wooCommerce";
 
 describe("WordPress Utils - WooCommerce", () => {
   beforeAll(() => {
@@ -73,7 +73,7 @@ describe("WordPress Utils - WooCommerce", () => {
       });
 
       it("should return the products", async () => {
-        const products = await getProducts();
+        const products = await getWooCommerceProducts();
 
         expect(products.length).toBeGreaterThan(0);
       });

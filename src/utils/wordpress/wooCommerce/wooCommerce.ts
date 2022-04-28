@@ -22,7 +22,7 @@ export const createWooCommerceApi = (
   }
 };
 
-export const getProducts = () => {
+export const getWooCommerceProducts = () => {
   const WooCommerce = createWooCommerceApi();
 
   return WooCommerce.get("products")
@@ -32,9 +32,9 @@ export const getProducts = () => {
     });
 };
 
-export const getInventory = async () => {
+export const getWooCommerceInventory = async () => {
   try {
-    const products = await getProducts();
+    const products = await getWooCommerceProducts();
     return products
       .filter(
         ({ stock_quantity }: Product) => typeof stock_quantity === "number"
