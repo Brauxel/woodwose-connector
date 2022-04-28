@@ -33,6 +33,6 @@ export const combineInventoryAndOverwriteGoogleSheet = async (
       data: googleSheetRes?.data,
     });
   } catch (error) {
-    res.send(400).send(error);
+    res.status(404).send({ error: "Not found" });
   }
 };
