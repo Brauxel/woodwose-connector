@@ -1,4 +1,34 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
+import {
+  createAuthClient,
+  createGoogleInstance,
+} from "../../utils/google-sheets";
+
+export const createGoogleSheetInstance = async (
+  _: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const auth = await createAuthClient();
+
+    try {
+      const googleSheetsInstance = await createGoogleInstance(auth);
+      res.locals.googleSheetsInstance = googleSheetsInstance;
+      next();
+    } catch (error) {
+      console.error(error);
+      return res
+        .status(401)
+        .json({ message: "Could not create google sheet instance" });
+    }
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(401)
+      .json({ message: "Could not authenticate with your credentials" });
+  }
+};
 
 /**
  * Google Sheet

@@ -1,7 +1,7 @@
 import express from "express";
 import combineInventorySheetRouter from "./resources/combine-inventory/combineInventory.router";
+import { createGoogleSheetInstance } from "./resources/google-sheet/googleSheet.controller";
 import googleSheetRouter from "./resources/google-sheet/googleSheet.router";
-import { createGoogleSheetInstance } from "./utils/google-sheets";
 import { hydrateEnv } from "./utils/secrets";
 
 // This function uses dotenv to import the .env file
