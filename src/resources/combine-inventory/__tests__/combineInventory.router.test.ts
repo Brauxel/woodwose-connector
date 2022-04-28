@@ -2,7 +2,7 @@ import request from "supertest";
 import app from "../../../app";
 
 describe("POST /api/combine-inventory/:id", () => {
-  it("should return a 200 response", async () => {
+  it("should return a 200 response when successful", async () => {
     const response = await request(app).post(
       "/api/combine-inventory/1IpyCMtLy9r6wAoUeIXx9AeUVwToC5SIbZJkVM0kWCMA?range=WooCommerceInventory"
     );
