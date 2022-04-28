@@ -9,4 +9,11 @@ describe("POST /api/combine-inventory/:id", () => {
     expect(response.statusCode).toBe(200);
     expect(Object.values(response.body.data).length).toBeGreaterThanOrEqual(1);
   });
+
+  it("should return a 400 response when there is an error", async () => {
+    const response = await request(app).post(
+      "/api/combine-inventory/a-wrong-spreadsheet-id?range=WooCommerceInventory"
+    );
+    expect(response.statusCode).toBe(404);
+  });
 });

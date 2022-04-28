@@ -39,9 +39,10 @@ export const getWooCommerceInventory = async () => {
       .filter(
         ({ stock_quantity }: Product) => typeof stock_quantity === "number"
       )
-      .map(({ sku, stock_quantity }: Product) => ({
+      .map(({ sku, stock_quantity, name }: Product) => ({
         sku,
         stock_quantity,
+        name,
       }));
   } catch (error) {
     logAndThrowError(
