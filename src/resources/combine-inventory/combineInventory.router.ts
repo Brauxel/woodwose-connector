@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { combineInventoryAndOverwriteGoogleSheet } from "./combineInventory.controller";
+import { handleCombineInventory } from "./combineInventory.controller";
 
 const combineInventorySheetRouter = Router();
 
@@ -7,8 +7,6 @@ const combineInventorySheetRouter = Router();
  * Combine Inventory
  * @route /api/combine-inventory/
  */
-combineInventorySheetRouter
-  .route("/:id")
-  .post(combineInventoryAndOverwriteGoogleSheet);
+combineInventorySheetRouter.route("/:id").post(handleCombineInventory);
 
 export default combineInventorySheetRouter;
