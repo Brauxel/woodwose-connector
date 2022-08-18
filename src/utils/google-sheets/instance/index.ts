@@ -1,4 +1,3 @@
-import { NextFunction, Request, Response } from "express";
 import { google } from "googleapis";
 import { GoogleAuth } from "googleapis-common";
 
@@ -29,31 +28,5 @@ export const createGoogleInstance = async (auth: GoogleAuth) => {
   } catch (error) {
     console.error(error);
     throw new Error("Failed to create google instance");
-  }
-};
-
-export const createGoogleSheetInstance = async (
-  _: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
-    const auth = await createAuthClient();
-
-    try {
-      const googleSheetsInstance = await createGoogleInstance(auth);
-      res.locals.googleSheetsInstance = googleSheetsInstance;
-      next();
-    } catch (error) {
-      console.error(error);
-      return res
-        .status(401)
-        .json({ message: "Could not create google sheet instance" });
-    }
-  } catch (error) {
-    console.error(error);
-    return res
-      .status(401)
-      .json({ message: "Could not authenticate with your credentials" });
   }
 };

@@ -1,16 +1,11 @@
 import { Request, Response } from "express";
+import { getWooCommerceInventoryAndOverwriteGoogleSheet } from "../../services/combine-inventory";
 /**
  * Combine Inventory
  * @route POST /api/combine-inventory
  */
 
-import {
-  overwriteGoogleSheet,
-  sanitizeDataForGoogleSheetsWrite,
-} from "../../utils/google-sheets";
-import { getWooCommerceInventory } from "../../utils/wordpress";
-
-export const combineInventoryAndOverwriteGoogleSheet = async (
+export const handleCombineInventory = async (
   req: Request,
   res: Response
 ): Promise<void> => {
@@ -19,14 +14,10 @@ export const combineInventoryAndOverwriteGoogleSheet = async (
     const { id: spreadsheetId } = req.params;
     const { range } = req.query;
 
-    const wooCommerceInventory = await getWooCommerceInventory();
-    const googleSheetData =
-      sanitizeDataForGoogleSheetsWrite(wooCommerceInventory);
-    const googleSheetRes = await overwriteGoogleSheet(
+    const googleSheetRes = await getWooCommerceInventoryAndOverwriteGoogleSheet(
       googleSheetsInstance,
       spreadsheetId,
-      range as string,
-      googleSheetData
+      range as string
     );
 
     res.status(200).json({
